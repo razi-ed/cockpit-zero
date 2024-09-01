@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment, useState } from "react";
 import {
   ColumnDef,
   ExpandedState,
@@ -18,7 +19,6 @@ import {
   TableHeader,
   TableRow,
 } from "@components/molecules/table";
-import { useState } from "react";
 
 export type TRenderSubComponent<TData> = (props: {
   row: Row<TData>;
@@ -87,9 +87,8 @@ export function DataTable<TData, TValue>({
               const canExpand = row.getCanExpand();
               const isExpanded = row.getIsExpanded();
               return (
-                <>
+                <Fragment key={`${row.id}-wrap`}>
                   <TableRow
-                    key={row.id}
                     data-state={row.getIsSelected() && "selected"}
                     className={`cursor-pointer ${
                       isExpanded ? "bg-muted/100" : "hover:bg-muted/50"
@@ -107,7 +106,6 @@ export function DataTable<TData, TValue>({
                   </TableRow>
                   {canExpand && isExpanded && (
                     <TableRow
-                      key={`${row.id}-expanded`}
                       data-state={row.getIsSelected() && "selected"}
                       className="bg-muted/100 hover:bg-muted/100"
                     >
@@ -118,7 +116,7 @@ export function DataTable<TData, TValue>({
                       </TableCell>
                     </TableRow>
                   )}
-                </>
+                </Fragment>
               );
             })
           ) : (
