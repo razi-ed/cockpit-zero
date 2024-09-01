@@ -1,4 +1,5 @@
 import { Inter as FontSans } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { ThemeProvider } from "@components/templates/theme-provider";
 import { AppLayout } from "@components/templates/app-layout";
@@ -46,6 +47,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AppLayout>{children}</AppLayout>
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
