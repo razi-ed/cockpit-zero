@@ -16,4 +16,13 @@ export interface IGroupedLogEventHistogramEntry {
   shortDate: string;
   logCount: number;
   longDate: string;
+  // severity: Record<ILogRecord["severityText"], number>;
+  totalCount: number;
+  UNSPECIFIED: number;
+  TRACE: number;
+  DEBUG: number;
+  INFO: number;
+  WARN: number;
+  ERROR: number;
+  FATAL: number;
 }

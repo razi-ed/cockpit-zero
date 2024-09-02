@@ -32,9 +32,34 @@ const chartConfig = {
   longDate: {
     label: "Event Date",
   },
-  logCount: {
+  UNSPECIFIED: {
     label: "Event Count",
     color: "hsl(var(--chart-1))",
+  },
+
+  FATAL: {
+    label: "FATAL Count",
+    color: "hsl(var(--chart-7))",
+  },
+  ERROR: {
+    label: "ERROR Count",
+    color: "hsl(var(--chart-3))",
+  },
+  WARN: {
+    label: "WARN Count",
+    color: "hsl(var(--chart-6))",
+  },
+  INFO: {
+    label: "INFO Count",
+    color: "hsl(var(--chart-5))",
+  },
+  DEBUG: {
+    label: "DEBUG Count",
+    color: "hsl(var(--chart-2))",
+  },
+  TRACE: {
+    label: "TRACE Count",
+    color: "hsl(var(--chart-4))",
   },
 } satisfies ChartConfig;
 
@@ -87,11 +112,21 @@ export function LogEventsHistogram({
               minTickGap={32}
             />
             <ChartTooltip
-              content={
-                <ChartTooltipContent className="w-[150px]" nameKey="logCount" />
-              }
+            // content={
+            //   <ChartTooltipContent className="w-[150px]" nameKey="longDate" />
+            // }
             />
-            <Bar dataKey={"logCount"} fill={"var(--color-logCount)"} />
+            <Bar dataKey={"FATAL"} fill={chartConfig.FATAL.color} stackId="a" />
+            <Bar dataKey={"ERROR"} fill={chartConfig.ERROR.color} stackId="a" />
+            <Bar dataKey={"WARN"} fill={chartConfig.WARN.color} stackId="a" />
+            <Bar dataKey={"INFO"} fill={chartConfig.INFO.color} stackId="a" />
+            <Bar dataKey={"DEBUG"} fill={chartConfig.DEBUG.color} stackId="a" />
+            <Bar dataKey={"TRACE"} fill={chartConfig.TRACE.color} stackId="a" />
+            <Bar
+              dataKey={"UNSPECIFIED"}
+              fill={chartConfig.UNSPECIFIED.color}
+              stackId="a"
+            />
           </BarChartComponent>
         </ChartContainer>
       </CardContent>
