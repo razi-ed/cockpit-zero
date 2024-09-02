@@ -5,3 +5,5 @@ export default async function LogEventsPage() {
     </div>
   );
 }
+
+export const dynamic = "force-dynamic";
