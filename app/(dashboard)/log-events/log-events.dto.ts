@@ -28,7 +28,10 @@ export const getLogEventsDTO = (
         const dateObj = getDateObjectFromUnixNanoTime(
           `${logRecord.timeUnixNano}`
         );
-        const utcPreciseDatetime = dateObj.toUTCString();
+        const utcPreciseDatetime = new Intl.DateTimeFormat("en-DE", {
+          dateStyle: "full",
+          timeStyle: "long",
+        }).format(dateObj);
         const id = getMD5(
           utcPreciseDatetime,
           logRecord.severityText || "",
