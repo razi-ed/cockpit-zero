@@ -58,7 +58,7 @@ export const getLogEventsDTO = (
   /** sorting `ASC` by `timeUnixNano` */
   const sortableList = Array.from(data);
   sortableList.sort(
-    (a, b) => Number(a["timeUnixNano"]) - Number(b["timeUnixNano"])
+    (a, b) => Number(b["timeUnixNano"]) - Number(a["timeUnixNano"])
   );
   return sortableList;
 };
