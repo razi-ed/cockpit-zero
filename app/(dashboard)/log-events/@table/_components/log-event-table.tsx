@@ -1,10 +1,8 @@
 "use client";
 
-/* ***package imports***  */
 import { Fragment, type ReactNode, useCallback, useMemo } from "react";
 import { type ColumnDef } from "@tanstack/react-table";
 
-/* ***components imports***  */
 import {
   DataTable,
   TRenderSubComponent,
@@ -16,16 +14,8 @@ import {
   CardTitle,
 } from "@components/molecules/card";
 
-/* ***libs, utils, custom-hooks imports***  */
-
-/* ***configs imports***  */
-
-/* ***enums, consts imports***  */
-
-/* ***types imports***  */
 import { type ILogEvent } from "@dashboard/dashboard.definitions";
 
-/* ***local declarations***  */
 interface ILogEventTableProps {
   tableData: ILogEvent[];
 }
@@ -52,18 +42,6 @@ const renderAttributesList = (attributes: ILogEvent["attributes"]) => {
 };
 
 export function LogEventTable({ tableData }: ILogEventTableProps) {
-  /* ***props decustructions***  */
-
-  /* ***data selectors***  */
-
-  /* ***hooks initializations***  */
-
-  /* ***state initializations***  */
-
-  /* ***side effects definitions***  */
-
-  /* ***memoised functions initializations***  */
-
   const renderAttributes: TRenderSubComponent<ILogEvent> = useCallback(
     ({ row }) => {
       const { attributes } = tableData[row.index];
@@ -100,7 +78,6 @@ export function LogEventTable({ tableData }: ILogEventTableProps) {
     [tableData]
   );
 
-  /* ***memoised variables initializations***  */
   const columns: ColumnDef<ILogEvent>[] = useMemo(
     () => [
       {
@@ -118,10 +95,6 @@ export function LogEventTable({ tableData }: ILogEventTableProps) {
     ],
     []
   );
-
-  /* ***internal declarations, if necessary,***  */
-
-  /* ***conditional renderings***  */
 
   return (
     <DataTable
